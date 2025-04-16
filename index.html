@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Valores - Empresa</title>
+    <style>
+        :root {
+            /* Colores Gruvbox claro */
+            --bg: #fbf1c7;
+            --bg-alt: #ebdbb2;
+            --fg: #3c3836;
+            --fg-alt: #504945;
+            --red: #cc241d;
+            --green: #98971a;
+            --yellow: #d79921;
+            --blue: #458588;
+            --purple: #b16286;
+            --aqua: #689d6a;
+            --orange: #d65d0e;
+        }
+
+        [data-theme="dark"] {
+            /* Colores Gruvbox oscuro */
+            --bg: #282828;
+            --bg-alt: #3c3836;
+            --fg: #ebdbb2;
+            --fg-alt: #d5c4a1;
+            --red: #fb4934;
+            --green: #b8bb26;
+            --yellow: #fabd2f;
+            --blue: #83a598;
+            --purple: #d3869b;
+            --aqua: #8ec07c;
+            --orange: #fe8019;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--fg);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--yellow);
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            color: var(--orange);
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-alt);
+            color: var(--fg);
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--yellow);
+            color: var(--bg);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            stroke: currentColor;
+        }
+
+        .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .sun-icon {
+            display: block;
+        }
+
+        [data-theme="dark"] .moon-icon {
+            display: none;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background-color: var(--bg-alt);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--yellow);
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+            color: var(--orange);
+        }
+
+        .value-description {
+            margin: 0;
+            color: var(--fg-alt);
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 2px solid var(--yellow);
+            color: var(--fg-alt);
+        }
+
+        /* Colores específicos para cada valor */
+        .integrity {
+            border-left: 5px solid var(--green);
+        }
+
+        .innovation {
+            border-left: 5px solid var(--blue);
+        }
+
+        .teamwork {
+            border-left: 5px solid var(--purple);
+        }
+
+        .excellence {
+            border-left: 5px solid var(--aqua);
+        }
+
+        .customer {
+            border-left: 5px solid var(--red);
+        }
+
+        .sustainability {
+            border-left: 5px solid var(--yellow);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nuestros Valores</h1>
+            <button class="theme-toggle" id="themeToggle">
+                <svg class="moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,18c-3.3,0-6-2.7-6-6s2.7-6,6-6c0.1,0,0.2,0,0.3,0c-0.2,0.5-0.3,1-0.3,1.5c0,2.8,2.2,5,5,5c0.5,0,1-0.1,1.5-0.3 C12.2,17.8,12.1,18,12,18z"/>
+                </svg>
+                <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+        </header>
+
+        <main>
+            <div class="values-grid">
+                <div class="value-card integrity">
+                    <div class="value-icon">🔍</div>
+                    <h2 class="value-title">Integridad</h2>
+                    <p class="value-description">Actuamos con honestidad y transparencia en todas nuestras relaciones y operaciones, manteniendo los más altos estándares éticos.</p>
+                </div>
+
+                <div class="value-card innovation">
+                    <div class="value-icon">💡</div>
+                    <h2 class="value-title">Innovación</h2>
+                    <p class="value-description">Buscamos constantemente nuevas ideas y soluciones creativas para superar las expectativas y enfrentar los desafíos del mañana.</p>
+                </div>
+
+                <div class="value-card teamwork">
+                    <div class="value-icon">🤝</div>
+                    <h2 class="value-title">Trabajo en Equipo</h2>
+                    <p class="value-description">Valoramos la colaboración, el respeto mutuo y la diversidad de pensamiento para lograr resultados excepcionales juntos.</p>
+                </div>
+
+                <div class="value-card excellence">
+                    <div class="value-icon">🏆</div>
+                    <h2 class="value-title">Excelencia</h2>
+                    <p class="value-description">Nos esforzamos por la más alta calidad en todo lo que hacemos, superando constantemente nuestros propios estándares.</p>
+                </div>
+
+                <div class="value-card customer">
+                    <div class="value-icon">❤️</div>
+                    <h2 class="value-title">Enfoque al Cliente</h2>
+                    <p class="value-description">Ponemos a nuestros clientes en el centro de todo lo que hacemos, entendiendo sus necesidades y superando sus expectativas.</p>
+                </div>
+
+                <div class="value-card sustainability">
+                    <div class="value-icon">🌱</div>
+                    <h2 class="value-title">Sostenibilidad</h2>
+                    <p class="value-description">Nos comprometemos con prácticas responsables que beneficien a las personas, al planeta y aseguren un futuro próspero.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 Nuestra Empresa. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Verificar preferencia del usuario
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+
+        // Aplicar tema inicial
+        if (currentTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+        }
+
+        // Alternar tema
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
